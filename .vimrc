@@ -1,0 +1,20 @@
+set wrap 
+set nowrapscan
+set visualbell 
+set ruler 
+set shiftwidth=4 
+set number  
+set fileencoding=utf-8
+set tenc=utf-8
+set hlsearch
+set ignorecase
+set tabstop=4
+set softtabstop=4
+set expandtab
+set incsearch
+syntax on 
+filetype plugin indent on 
+colorscheme molokai
+set backspace=eol,start,indent
+set history=1000
+execute pathogen#infect()

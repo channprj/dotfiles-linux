@@ -1,0 +1,26 @@
+upstream django {
+	ip_hash;
+    # server unix:///app.sock;
+    server localhost:8000;
+}
+
+server {
+    listen      80;
+    server_name user.domain;
+
+    client_max_body_size 75M;
+
+    location /media  {
+        alias /home/user/django/media;
+    }
+
+    location /static {
+        alias /home/user/django/static;
+    }
+
+    location / {
+        # uwsgi_pass	django;
+		proxy_pass	http://django;
+		include     uwsgi_params;
+    }
+}

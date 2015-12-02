@@ -1,0 +1,75 @@
+# https://gist.github.com/vvo/7414035
+
+# cache 200 10 minutes, 404 1 minute, others status codes not cached
+proxy_cache_valid 200 10m;
+proxy_cache_valid 404 1m;
+
+proxy_cache_key "$scheme$host$request_uri";
+
+client_body_buffer_size 128k;
+
+# default expires (browser cache) set to 1 minute
+expires 1m;
+
+# add a cache HIT/MISS header
+add_header X-Cache $upstream_cache_status;
+
+##################################
+
+server {
+	listen 80;
+	server_name ghost.blog.domain;
+	#	access_log /var/log/nginx/ghost.log;
+	
+	client_max_body_size 20m;
+
+	root /home/user/ghost;
+	index index.html index.htm;
+
+	location / {
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header HOST $http_host;
+		proxy_set_header X-NginX-Proxy true;
+
+    proxy_ignore_headers "Set-Cookie";
+    proxy_hide_header "Set-Cookie";
+
+		proxy_pass http://ghost;
+		proxy_redirect off;
+	}
+
+  # add some caching on static assets
+  location ~* \.(jpg|jpeg|png|gif|ico|css|js|eot|woff)$ {
+  # ghost sends Cache-Control max-age=0 on CSS/JS for now
+  # see https://github.com/TryGhost/Ghost/issues/1405?source=c#issuecomment-28196957
+    proxy_ignore_headers "Cache-Control";
+    expires 10y;
+    proxy_pass http://ghost;
+  }
+
+}
+
+upstream ghost {
+	ip_hash;
+	server 123.123.123.123:2367 weight=3;
+	keepalive 100;
+}
+
+server {
+	listen 2368;
+	server_name ghost.blog.domain;
+
+	access_log /var/log/nginx/ghost.log;
+
+	root /home/user/ghost;
+	index index.html index.htm;
+
+	location / {
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header HOST $http_host;
+		proxy_set_header X-NginX-Proxy true;
+
+		proxy_pass http://localhost:2368;
+		proxy_redirect off;
+	}
+}

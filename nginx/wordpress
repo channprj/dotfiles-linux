@@ -10,7 +10,7 @@ server {
   error_page 404 /404.htm;
   error_page 500 502 503 504 /50x.htm;
   location = /50x.htm {
-    root /home/cblog/html;
+    root /home/user/html;
   }
 
   location ~ \.php$ { 

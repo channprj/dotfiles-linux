@@ -32,4 +32,4 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # autoenv
-source '$HOME/.linuxbrew/Cellar/autoenv/0.1.0/activate.sh'
+source $(brew --prefix autoenv)/activate.sh

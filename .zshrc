@@ -4,7 +4,7 @@ ZSH_THEME="dpoggi"
 
 ## History
 HIST_STAMPS="yyyy-mm-dd"
-HISTSIZE=1000			# lines of history to maintain memory
+HISTSIZE=100			# lines of history to maintain memory
 SAVEHIST=500			# lines of history to maintain in history file.
 setopt EXTENDED_HISTORY	# save timestamp and runtime information
 
@@ -24,7 +24,7 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 # nvm
 . ~/.nvm/nvm.sh
-export NVM_DIR="/home/channprj/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # pyenv, virtualenv
@@ -33,4 +33,4 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # autoenv
-source '~/.linuxbrew/Cellar/autoenv/0.1.0/activate.sh'
+source '$HOME/.linuxbrew/Cellar/autoenv/0.1.0/activate.sh'

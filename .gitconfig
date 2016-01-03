@@ -13,3 +13,5 @@
 	lg = log --decorate --oneline --graph --all
 	po = pull origin
 	f = fetch
+	ds = diff --staged
+	di = diff

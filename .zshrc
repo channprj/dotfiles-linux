@@ -7,6 +7,18 @@ HISTSIZE=100			# lines of history to maintain memory
 SAVEHIST=500			# lines of history to maintain in history file.
 setopt EXTENDED_HISTORY	# save timestamp and runtime information
 
+# Temp Project DB
+export DB_NAME="db_name"
+export DB_ID="db_id"
+export DB_PW="db_password"
+
+# Useful Sentence
+# export mygit="https://github.com/channprj"
+
+# Alias
+alias pp='python'
+alias gits='git clone'
+
 ## plugins
 plugins=(git)
 

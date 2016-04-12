@@ -19,7 +19,8 @@ export DB_PW="db_password"
 
 # Alias
 alias pp='python'
-alias gits='git clone'
+alias gclone='git clone'
+alias gogit='cd ~/git'
 
 ## plugins
 plugins=(git)

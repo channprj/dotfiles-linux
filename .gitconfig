@@ -11,7 +11,8 @@
 	cm = commit -m
 	co = checkout
 	lg = log --decorate --oneline --graph --all
-	po = pull origin
+    po = pull origin
+    poo = push origin
 	f = fetch
 	ds = diff --staged
 	di = diff

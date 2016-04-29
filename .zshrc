@@ -18,9 +18,10 @@ export DB_PW="db_password"
 # export mygit="https://github.com/channprj"
 
 ### Alias
-alias pp='python'
-alias gclone='git clone'
-alias gogit='cd ~/git'
+alias pp="python"
+alias gclone="git clone"
+alias gogit="cd ~/git"
+alias open="nautilus"
 
 ### plugins
 plugins=(git)

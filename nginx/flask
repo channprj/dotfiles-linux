@@ -1,0 +1,20 @@
+upstream flask {
+	ip_hash;
+	server localhost:8000;
+}
+
+server {
+	listen 80;
+	server_name flask.chann.kr;
+
+	client_max_body_size 100M;
+
+	location /static  {
+		alias /home/user/html/static;
+	}
+
+	location / {
+		proxy_pass http://flask;
+		include uwsgi_params;
+	}
+}

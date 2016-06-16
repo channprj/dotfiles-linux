@@ -18,3 +18,30 @@ colorscheme molokai
 set backspace=eol,start,indent
 set history=1000
 execute pathogen#infect()
+
+
+"""vim-plug
+call plug#begin('~/.vim/plugged')
+
+""PlugInstall list
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-github-dashboard'
+Plug 'junegunn/seoul256.vim'
+Plug 'powerline/powerline'
+Plug 'junegunn/goyo.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'davidhalter/jedi-vim'
+"let g:jedi#auto_initialization = 0
+
+Plug 'ervandew/supertab'
+
+call plug#end()
+"
+"""seoul256 colorscheme
+"let g:seoul256_background=232
+colorscheme seoul256
+
+""" Powerline
+set rtp+=/home/channprj/.pyenv/versions/3.5.1/lib/python3.5/site-packages/powerline/bindings/vim
+let g:Powerline_symbols = 'fancy'
+set laststatus=2

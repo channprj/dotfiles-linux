@@ -22,6 +22,7 @@ alias pp="python"
 alias gclone="git clone"
 alias gogit="cd ~/git"
 alias open="nautilus"
+alias lt="ls -latr"
 
 plugins=(git)
 

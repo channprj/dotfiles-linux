@@ -1,18 +1,18 @@
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
 [user]
-	name = CHANN
-	email = chann@chann.kr
+    name = CHANN
+    email = chann@chann.kr
 [core]
-	editor = vim
+    editor = vim
 [alias]
-	cm = commit -m
-	co = checkout
-	lg = log --decorate --oneline --graph --all
-	po = pull origin
-	poo = push origin
-	f = fetch
-	ds = diff --staged
-	di = diff
+    cm = commit -m
+    co = checkout
+    lg = log --all --graph --pretty=format:'%C(auto)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    po = pull origin
+    poo = push origin
+    f = fetch
+    ds = diff --staged
+    di = diff

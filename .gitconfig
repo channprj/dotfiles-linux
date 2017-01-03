@@ -7,6 +7,7 @@
     email = chann@chann.kr
 [core]
     editor = vim
+    autocrlf = input
 [alias]
     cm = commit -m
     co = checkout

@@ -14,34 +14,35 @@ set expandtab
 set incsearch
 syntax on 
 filetype plugin indent on 
-colorscheme molokai
 set backspace=eol,start,indent
 set history=1000
-execute pathogen#infect()
 
 
-"""vim-plug
+""" vim-plug
 call plug#begin('~/.vim/plugged')
 
-""PlugInstall list
+""" :PlugInstall
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
-Plug 'junegunn/seoul256.vim'
-Plug 'powerline/powerline'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
+"Plug 'junegunn/seoul256.vim'
+
+"Plug 'powerline/powerline'
 Plug 'airblade/vim-gitgutter'
 Plug 'davidhalter/jedi-vim'
 "let g:jedi#auto_initialization = 0
 
+Plug 'dracula/vim'
 Plug 'ervandew/supertab'
 
 call plug#end()
 "
-"""seoul256 colorscheme
+""" colorscheme
 "let g:seoul256_background=232
-colorscheme seoul256
+colorscheme dracula
 
-""" Powerline
-set rtp+=/home/channprj/.pyenv/versions/3.5.1/lib/python3.5/site-packages/powerline/bindings/vim
-let g:Powerline_symbols = 'fancy'
-set laststatus=2
+""" Powerline - too slow
+"set rtp+=/root/.pyenv/versions/3.6.2/lib/python3.6/site-packages/powerline/bindings/vim
+"let g:Powerline_symbols = 'fancy'
+"set laststatus=2

@@ -2,8 +2,9 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="dpoggi"
 source $ZSH/oh-my-zsh.sh
 
-echo "Welcome aboard!";w;
-
+echo "--------------------------------------------------------------------------------"
+w
+echo "--------------------------------------------------------------------------------"
 
 ### history
 HIST_STAMPS="yyyy-mm-dd"
@@ -55,9 +56,9 @@ plugins=(git)
 
 
 ### pyenv, virtualenv
-#export PATH="$HOME/.pyenv/bin:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 
 ### autoenv
@@ -65,11 +66,11 @@ plugins=(git)
 
 
 ### golang
-# export GOPATH=$HOME/golang
-# export GOROOT=/usr/local/bin/go
-# PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/bin/go
+PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 
 ### fzf
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -5,6 +5,8 @@
 [user]
     name = CHANN
     email = chann@chann.kr
+[credential]
+    helper = cache
 [core]
     editor = vim
     autocrlf = input

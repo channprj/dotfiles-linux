@@ -6,14 +6,14 @@
     name = CHANN
     email = chann@chann.kr
 [credential]
-	helper = cache --timeout 86400
+    helper = cache --timeout 86400
 [core]
+    excludesfile = $HOME/.gitignore_global
     editor = vim
     autocrlf = input
 [alias]
     cm = commit -m
     co = checkout
-    # lg = log --decorate --oneline --graph --all
     lg = log --all --graph --pretty=format:'%C(auto)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     p = pull
     po = pull origin
@@ -21,3 +21,21 @@
     poo = push origin
     st = status
     unadd = reset HEAD
+[diff]
+    compactionHeuristic = true
+[interactive]
+    diffFilter = diff-highlight
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[commit]
+    gpgsign = true
+[hub]
+    protocol = https
+

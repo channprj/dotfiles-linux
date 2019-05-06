@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# redirect errors to stdout -- just in case
+exec 2>&1
+
+[ -r /etc/lsb-release ] && . /etc/lsb-release
+
+if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
+   # Fall back to using the very slow lsb_release utility
+   DISTRIB_DESCRIPTION=$(lsb_release -s -d)
+fi
+
+# lolcat MIGHT NOT BE IN $PATH YET, SO BE EXPLICIT
+LOLCAT=/usr/games/lolcat
+
+# UPPERCASE HOSTNAME, APPLY FIGLET FONT "block" AND CENTERING
+INFO_HOST=$(echo $(hostname) | awk '{print toupper($0)}' | sed "s/^/  /" | figlet -f slant )
+
+# GET OS/ARCH/DATE, APPLY FIGLET FONT "term" AND CENTERING
+INFO_OS=$(printf "%s (%s)\n%s" "$DISTRIB_DESCRIPTION" "$(uname -r)" "$(date)" | sed "s/^/  /" | figlet -f term )
+
+# RUN IT ALL THROUGH lolcat FOR COLORING
+# NOTE: needs -f to force color output since intermediate file is not a TTY
+printf "%s\n%s\n" "$INFO_HOST" "$INFO_OS" | $LOLCAT -f
